@@ -1,0 +1,73 @@
+<form>
+  <!-- First Name & Last Name -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <app-input
+        label="First Name"
+        type="text"
+        id="firstName"
+        class="w-full"
+        placeholder="Enter first name"
+      />
+    </div>
+    <div>
+      <app-input
+      label="Last Name"
+        type="text"
+        id="lastName"
+        class="w-full"
+        placeholder="Enter last name"
+      />
+    </div>
+  </div>
+
+  <!-- Middle Name Optional & Phone -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+    <div>
+      <app-input
+        label="Middle Name (Optional)"
+        type="text"
+        id="company"
+        class="w-full"
+        placeholder="Aventis Corp."
+      />
+    </div>
+    <div>
+      <div class="flex items-center w-full">
+        <app-input class="w-full" label="Phone" type="text" id="phone" placeholder="817 685 2345">
+          <select leading class="appearance-none flex items-center text-sm bg-transparent">
+            <option>+234</option>
+            <option>+1</option>
+            <option>+44</option>
+          </select>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute right-3 top-3 w-5 h-5 text-slate-400 pointer-events-none"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </app-input>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Address -->
+  <div class="mt-4">
+    <app-input label="Email Address" type="email" id="email" class="" placeholder="Enter email" />
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mt-6 flex justify-center">
+    <app-button type="submit" class="w-full sm:w-auto md:w-11/12 text-white py-4 px-8">
+      Update Changes
+    </app-button>
+  </div>
+</form>

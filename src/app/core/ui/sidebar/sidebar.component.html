@@ -1,0 +1,151 @@
+<div class="relative h-screen">
+  <button
+    (click)="toggleSidebar()"
+    [class]="
+      'text-slate-500 hidden sm:block z-10 rounded-none hover:bg-white focus:outline-none fixed top-[50%] transform -translate-y-1/2 bg-white py-6 px-2 rounded-r-md' +
+      (isMinimized ? ' left-16' : ' left-64')
+    "
+  >
+    <div [class]="isMinimized ? ' rotate-180' : ' rotate-0'">
+      <fa-icon class="text-lg" [icon]="faChevronLeft"></fa-icon>
+    </div>
+  </button>
+
+  <div
+    [class.w-16]="isMinimized"
+    [class.w-64]="!isMinimized"
+    class="h-screen flex flex-col fixed bg-white transition-all duration-300 ease-in-out top-0 px-2"
+  >
+    <!-- Navigation -->
+    <nav class="flex-1">
+      <div class="flex flex-col items-start justify-center py-8 px-3">
+        <!-- isMinimized
+              ? './assets/images/mini-logo.png'
+              :  -->
+        <img
+          [src]="'./assets/images/logo.png'"
+          alt="Logo"
+          [class]="isMinimized ? 'w-full scale-150' : 'w-8/12'"
+          class="transition-all duration-300 ease-in-out"
+        />
+      </div>
+
+      <ul class="space-y-1">
+        <!-- Dashboard -->
+        <li>
+          <a
+            routerLink="/dashboard"
+            routerLinkActive="bg-primary-400 text-white"
+            class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+          >
+            <fa-icon class="text-lg" [icon]="faTableColumns"></fa-icon>
+            <span
+              *ngIf="!isMinimized"
+              class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+              >{{ !isMinimized ? "Dashboard" : "" }}</span
+            >
+          </a>
+        </li>
+
+        <!-- Shipment -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+          >
+            <fa-icon class="text-lg" [icon]="faTruck"></fa-icon>
+            <span
+              *ngIf="!isMinimized"
+              class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+              >{{ !isMinimized ? "Shipment" : "" }}</span
+            >
+          </a>
+        </li>
+
+        <!-- Deliveries -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+          >
+            <fa-icon class="text-lg" [icon]="faCartFlatbed"></fa-icon>
+
+            <span
+              *ngIf="!isMinimized"
+              class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+              >{{ !isMinimized ? "Deliveries" : "" }}</span
+            >
+          </a>
+        </li>
+
+        <!-- Analytics -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+          >
+            <fa-icon class="text-lg" [icon]="faChartBar"></fa-icon>
+
+            <span
+              *ngIf="!isMinimized"
+              class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+              >{{ !isMinimized ? "Analytics" : "" }}</span
+            >
+          </a>
+        </li>
+
+        <!-- Notifications -->
+        <li class="relative">
+          <a
+            href="#"
+            class="flex items-center px-4 py-3 text-sm text-slate-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+          >
+            <fa-icon class="text-lg" [icon]="faBell"></fa-icon>
+            <span
+              *ngIf="!isMinimized"
+              class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+              >{{ !isMinimized ? "Notifications" : "" }}</span
+            >
+          </a>
+          <span
+            *ngIf="!isMinimized"
+            class="absolute top-2 right-2 text-xs text-white bg-green-500 rounded-full px-2 py-1"
+            >10</span
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Footer -->
+    <div
+      class="w-full bottom-0 py-6 transition-opacity duration-300 ease-in-out opacity-100"
+    >
+      <div class="pt-4">
+        <a
+          routerLink="/settings"
+          routerLinkActive="bg-primary-400 text-white"
+          class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-400 hover:text-white rounded-md stroke-slate-500 hover:stroke-none transition-all duration-100 ease-in-out fill-none hover:fill-white"
+        >
+          <fa-icon class="text-lg" [icon]="faGear"></fa-icon>
+          <span
+            *ngIf="!isMinimized"
+            class="ml-3 transition-opacity duration-300 ease-in-out opacity-100"
+            >{{ !isMinimized ? "Settings" : "" }}</span
+          >
+        </a>
+      </div>
+
+      <div class="flex items-center mt-6 pl-2">
+        <fa-icon class="text-3xl" [icon]="faUserCircle"></fa-icon>
+
+        <div class="ml-3" *ngIf="!isMinimized">
+          <p class="text-sm font-medium text-slate-900">Batson Pierce</p>
+
+          <p class="text-xs text-slate-500">
+            {{ "batson.p@africaniexport.com" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

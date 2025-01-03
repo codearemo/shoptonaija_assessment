@@ -1,0 +1,12 @@
+<main class="bg-slate-50 w-screen h-screen">
+  <app-header [isMinimized]="isMinimized"></app-header>
+  <app-sidebar [isMinimized]="isMinimized" (sidebarToggled)="toggleSidebar()"></app-sidebar>
+
+  <main [class]="
+  'bg-slate-50 transition-all duration-300 ease-in-out absolute top-0 right-0 px-8 py-4 mt-24' +
+  (isMinimized ? ' w-[calc(100%-4rem)]' : ' w-[calc(100%-16rem)]')
+">
+
+<router-outlet></router-outlet>
+  </main>
+</main>

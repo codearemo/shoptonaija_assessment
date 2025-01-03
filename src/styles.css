@@ -1,0 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
+@import './app/core/styles/app_tailwind.css';
+/* Must be imported after tailwind */
+@import './app/core/styles/app_styles.css';

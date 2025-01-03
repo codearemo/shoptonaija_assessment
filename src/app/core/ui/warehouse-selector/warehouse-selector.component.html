@@ -1,0 +1,76 @@
+<div
+  class="bg-white p-6 rounded-lg h-full flex flex-col justify-between"
+>
+  <div class="">
+    <!-- Header -->
+    <h2 class="text-sm font-medium text-slate-600 uppercase mb-4">
+      Our Warehouses
+    </h2>
+
+    <!-- Dropdown -->
+    <div class="relative">
+      <select
+        (change)="onWarehouseChange($event)"
+        class="w-full p-3 text-sm border rounded-lg border-slate-300 focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none"
+      >
+        <option *ngFor="let warehouse of warehouses" [value]="warehouse.name">
+          {{ warehouse.name }}
+        </option>
+      </select>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute right-3 top-3 w-5 h-5 text-slate-400 pointer-events-none"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Warehouse Details -->
+  <div class="flex items-center h-full mt-4 p-4 bg-slate-50 rounded-lg">
+    <div class="flex flex-col h-full">
+      <div class="flex flex-1 items-center justify-between">
+        <p class="text-sm font-medium text-slate-700">
+          {{ selectedWarehouse?.name }}
+        </p>
+        <button
+          class="text-slate-400 hover:text-slate-600"
+          (click)="copyToClipboard(selectedWarehouse?.address || '')"
+          title="Copy address"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 16h8m-8-4h8m-6 8H6a2 2 0 01-2-2V6a2 2 0 012-2h6m4 0h2a2 2 0 012 2v6"
+            />
+          </svg>
+        </button>
+      </div>
+        <p class="text-sm text-slate-500 mt-2">{{ selectedWarehouse?.address }}</p>
+        <div class="flex-1 flex items-center">
+          <a
+            href="{{ selectedWarehouse?.mapLink }}"
+            target="_blank"
+            class="text-sm text-green-600 font-medium mt-3 inline-block hover:underline"
+            >View On Map</a
+          >
+        </div>
+    </div>
+  </div>
+</div>

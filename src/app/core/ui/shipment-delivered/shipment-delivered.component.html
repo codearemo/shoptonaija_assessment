@@ -1,0 +1,46 @@
+<div class="bg-black text-white rounded-xl p-6 shadow-md">
+  <!-- Header Section -->
+  <div class="flex justify-between items-center">
+    <h2 class="text-sm font-medium">SHIPMENT DELIVERED</h2>
+    <div class="border h-6 w-6 flex justify-center items-center border-slate-200 rounded-full">
+      <fa-icon class="text-[8px]" [icon]="faDollarSign"></fa-icon>
+    </div>
+  </div>
+
+  <!-- Main Metrics -->
+  <div class="mt-4">
+    <h1 class="text-4xl font-bold">10,567</h1>
+    <p class="text-sm mt-1 text-green-300">
+      +$10,774 <span class="text-slate-400">vs last month</span>
+    </p>
+  </div>
+
+  <!-- Growth Indicator -->
+  <div class="flex items-center mt-2">
+    <span class="bg-green-500 text-sm text-white font-medium px-2 py-0.5 rounded-full">
+      ↑ 18%
+    </span>
+  </div>
+
+  <!-- Radial Chart -->
+  <div class="mt-6 flex">
+    <div echarts [options]="chartOptions" class="chart-container"></div>
+    <!-- Legend -->
+    <div class="mt-4 space-y-2 flex-1">
+      <div
+        *ngFor="let item of chartData"
+        class="flex flex-col items-center justify-between text-sm"
+      >
+        <div class="flex items-center text-xs">
+          <span
+            class="w-3 h-3 rounded-full"
+            [ngStyle]="{ backgroundColor: item.color }"
+          ></span>
+          <span class="ml-2 whitespace-nowrap">{{ item.name }}</span>
+        </div>
+        <span class="text-lg font-semibold">{{ item.value }}%</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+<button
+  [ngClass]="[
+    'px-4 py-2 rounded font-medium transition-colors duration-200',
+    variantClass,
+    sizeClass,
+    isFullWidth ? 'w-full' : 'w-auto',
+    isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+  ]"
+  [disabled]="isDisabled"
+>
+  <ng-content></ng-content>
+</button>

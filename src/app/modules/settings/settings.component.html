@@ -1,0 +1,53 @@
+<div class="min-h-screen">
+  <div class="">
+    <h2 class="text-xl font-semibold">Settings</h2>
+    <p class="text-slate-500 text-sm mt-1">You can view and manage customer deliveries here</p>
+  </div>
+
+  <!-- Header Section -->
+  <div class="bg-white rounded-lg p-3 mt-8">
+    <div class="flex items-center rounded-lg justify-between bg-cover bg-center bg-no-repeat h-full p-4" style="background-image: url('/assets/images/profile-bg.png');">
+      <!-- User Info -->
+      <div class="flex items-center space-x-4">
+        <img
+          src="https://via.placeholder.com/60"
+          alt="User Avatar"
+          class="w-16 h-16 rounded-full"
+        />
+        <div>
+          <h1 class="text-lg font-medium">Batson Pierce</h1>
+          <p class="text-sm text-slate-500">{{'batson.p@africanices.com'}}</p>
+        </div>
+      </div>
+      <!-- Date Joined -->
+      <p class="text-sm text-slate-500">Date Joined: 15/05/23</p>
+    </div>
+
+    <div class="bg-slate-50 inline-block rounded-lg mt-4">
+      <ul class="flex">
+        <li
+          *ngFor="let tab of tabs; let i = index"
+          class="cursor-pointer p-2 text-sm text-slate-400"
+          [class.text-slate-900]="i === selectedTabIndex"
+          [class.text-slate-500]="i !== selectedTabIndex"
+          (click)="selectTab(i)"
+        >
+        <p
+        class="py-2 px-4 rounded-lg"
+        [class.bg-white]="i === selectedTabIndex"
+        [class.font-medium]="i === selectedTabIndex"
+        >
+          {{ tab }}
+        </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Content Section -->
+    <div class="p-6">
+      <ng-container *ngIf="selectedTabIndex === 0">
+        <app-profile-management></app-profile-management>
+      </ng-container>
+    </div>
+  </div>
+</div>

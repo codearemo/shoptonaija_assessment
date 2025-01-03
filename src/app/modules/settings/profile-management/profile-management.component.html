@@ -1,0 +1,18 @@
+<main class="grid grid-cols-[auto,1fr] gap-12">
+  <div class="h-full">
+    <div class="mb-6 cursor-pointer"
+    (click)="selectTab(tab)" *ngFor="let tab of tabs;">
+      <div class="flex items-center gap-4" [class.text-primary-500]="tab.name === selectedTab.name">
+        <h2 class="text-sm font-medium">{{tab.name}}</h2>
+        <fa-icon class="text-xs" [icon]="faChevronRight"></fa-icon>
+      </div>
+      <p class="text-xs mt-1 text-slate-400">
+        {{tab.subTitle}}
+      </p>
+    </div>
+  </div>
+
+  <div class="">
+    <ng-container *ngComponentOutlet="selectedTab.component;"></ng-container>
+  </div>
+</main>
